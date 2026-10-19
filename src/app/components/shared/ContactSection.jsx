@@ -60,26 +60,6 @@ const contactInfo = [
 ];
 
 const ContactSection = () => {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const form = e.currentTarget;
-    const data = new FormData(form);
-
-    const name = data.get("name");
-    const email = data.get("email");
-    const subject = data.get("subject");
-    const message = data.get("message");
-
-    const mailto = `mailto:naimislam709677@gmail.com?subject=${encodeURIComponent(
-      subject,
-    )}&body=${encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\n\n${message}`,
-    )}`;
-
-    window.location.href = mailto;
-  };
-
   return (
     <div>
       <section
@@ -108,95 +88,91 @@ const ContactSection = () => {
           <div className="grid gap-6 lg:grid-cols-[1.7fr_1fr] py-3">
             {/* Contact form */}
             <div className="rounded-2xl border border-white/8 bg-linear-to-br from-[#111b2b] to-[#0c1422] p-5 shadow-xl shadow-black/10 sm:p-8">
-              <h3 className="text-xl font-semibold text-red-800">
-                This function has not been defined yet.
-              </h3>
               <h3 className="text-xl font-semibold">Send a Message</h3>
               <p className="mt-2 text-sm text-slate-400">
                 Fill out the form below to get in touch.
               </p>
-              <form onSubmit={handleSubmit} className="mt-6 space-y-4">
-                <div className="grid gap-4 sm:grid-cols-2">
+              <form
+                action="https://api.web3forms.com/submit"
+                method="POST"
+                className="w-full max-w-3xl mx-auto rounded-2xl border border-slate-700/60 bg-linear-to-br from-slate-900 to-[#0b1220] p-5 sm:p-8 text-white shadow-xl"
+              >
+                <input
+                  type="hidden"
+                  name="access_key"
+                  value="7c35838e-a750-466c-aa88-a3f0efadd111"
+                />
+                <h2 className="mb-2 text-2xl font-bold text-white">
+                  Send a Message
+                </h2>
+                <p className="mb-7 text-sm leading-6 text-slate-400">
+                  Fill out the form below to get in touch.
+                </p>
+                {/* Name and Email */}
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                   <div>
                     <label
                       htmlFor="name"
-                      className="mb-2 block text-sm font-medium text-slate-300"
+                      className="mb-2 block text-sm font-semibold text-slate-200"
                     >
                       Your Name
                     </label>
                     <input
                       id="name"
-                      name="name"
                       type="text"
-                      placeholder="John Doe"
-                      autoComplete="name"
+                      name="name"
+                      placeholder="Name"
                       required
-                      className="w-full rounded-xl border border-white/10 bg-[#080f1c]/80 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-600 focus:border-cyan-400/60 focus:ring-2 focus:ring-cyan-400/10"
+                      className="w-full rounded-xl border border-slate-700/70 bg-[#080f1b] px-4 py-3.5 text-sm text-white placeholder:text-slate-600 outline-none transition duration-300 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="email"
-                      className="mb-2 block text-sm font-medium text-slate-300"
+                      className="mb-2 block text-sm font-semibold text-slate-200"
                     >
                       Email Address
                     </label>
                     <input
                       id="email"
-                      name="email"
                       type="email"
+                      name="email"
                       placeholder="you@example.com"
-                      autoComplete="email"
                       required
-                      className="w-full rounded-xl border border-white/10 bg-[#080f1c]/80 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-600 focus:border-cyan-400/60 focus:ring-2 focus:ring-cyan-400/10"
+                      className="w-full rounded-xl border border-slate-700/70 bg-[#080f1b] px-4 py-3.5 text-sm text-white placeholder:text-slate-600 outline-none transition duration-300 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10"
                     />
                   </div>
                 </div>
-                <div>
-                  <label
-                    htmlFor="subject"
-                    className="mb-2 block text-sm font-medium text-slate-300"
-                  >
-                    Subject
-                  </label>
-                  <input
-                    id="subject"
-                    name="subject"
-                    type="text"
-                    placeholder="What would you like to discuss?"
-                    required
-                    className="w-full rounded-xl border border-white/10 bg-[#080f1c]/80 px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-600 focus:border-cyan-400/60 focus:ring-2 focus:ring-cyan-400/10"
-                  />
-                </div>
-                <div>
+                {/* Message */}
+                <div className="mt-5">
                   <label
                     htmlFor="message"
-                    className="mb-2 block text-sm font-medium text-slate-300"
+                    className="mb-2 block text-sm font-semibold text-slate-200"
                   >
                     Message
                   </label>
                   <textarea
                     id="message"
                     name="message"
-                    rows={5}
+                    rows="5"
                     placeholder="Write your message here..."
                     required
-                    className="w-full resize-y rounded-xl border border-white/10 bg-[#080f1c]/80 px-4 py-3 text-sm leading-6 text-white outline-none transition placeholder:text-slate-600 focus:border-cyan-400/60 focus:ring-2 focus:ring-cyan-400/10"
-                  />
+                    className="w-full resize-y rounded-xl border border-slate-700/70 bg-[#080f1b] px-4 py-4 text-sm leading-6 text-white placeholder:text-slate-600 outline-none transition duration-300 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10"
+                  ></textarea>
                 </div>
+
+                {/* Submit Button */}
                 <button
                   type="submit"
-                  className="group inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-linear-to-r from-blue-600 to-blue-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-600/20 transition duration-300 hover:-translate-y-0.5 hover:from-blue-500 hover:to-cyan-500 hover:shadow-cyan-500/20 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-[#111b2b]"
+                  className="mt-5 flex w-full items-center justify-center gap-3 rounded-xl bg-linear-to-r from-blue-600 to-blue-500 px-5 py-4 text-sm font-bold text-white shadow-lg shadow-blue-600/20 transition duration-300 hover:-translate-y-0.5 hover:from-blue-500 hover:to-blue-400 hover:shadow-blue-500/30 active:translate-y-0"
                 >
                   Send Message
-                  <span
-                    className="transition-transform group-hover:translate-x-1"
-                    aria-hidden="true"
-                  >
+                  <span aria-hidden="true" className="text-xl leading-none">
                     →
                   </span>
                 </button>
-                <p className="text-xs leading-5 text-slate-500">
+
+                <p className="mt-4 text-xs leading-5 text-slate-500">
                   Your email app will open with your message prepared. You can
                   review it before sending.
                 </p>
