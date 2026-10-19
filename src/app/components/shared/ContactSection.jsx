@@ -102,12 +102,6 @@ const ContactSection = () => {
                   name="access_key"
                   value="7c35838e-a750-466c-aa88-a3f0efadd111"
                 />
-                <h2 className="mb-2 text-2xl font-bold text-white">
-                  Send a Message
-                </h2>
-                <p className="mb-7 text-sm leading-6 text-slate-400">
-                  Fill out the form below to get in touch.
-                </p>
                 {/* Name and Email */}
                 <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                   <div>
