@@ -23,7 +23,7 @@ const emailInfo = [
 const contactInfo = [
   {
     label: "GitHub",
-    value: "https://github.com/naimislam-24",
+    value: "Visit My GitHub Profile",
     href: "https://github.com/naimislam-24",
     icon: (
       <svg
@@ -42,8 +42,8 @@ const contactInfo = [
   },
   {
     label: "LinkedIn",
-    value: "linkedin.com/in/YOUR_USERNAME",
-    href: "https://linkedin.com/in/YOUR_USERNAME",
+    value: "Visit My LinkedIn Profile",
+    href: "https://www.linkedin.com/in/naim-islam24/?isSelfProfile=true",
     icon: (
       <svg
         viewBox="0 0 24 24"

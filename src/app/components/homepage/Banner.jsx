@@ -72,7 +72,7 @@ const Banner = () => {
                   />
                 </a>
                 <a
-                  href="https://linkedin.com/in/YOUR_USERNAME"
+                  href="https://www.linkedin.com/in/naim-islam24/?isSelfProfile=true"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="LinkedIn profile"
