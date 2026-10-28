@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import banner from "@/app/assets/banner.jpg";
+import banner from "@/app/assets/banner1.jpeg";
 import neonicon from "@/app/assets/neon-ocde.png";
 import github from "@/app/assets/github.png";
 import linkind from "@/app/assets/linkind.png";
